@@ -1,0 +1,51 @@
+@startuml
+Entity whale {
+    whale_id
+}
+Entity whale_species {
+    whale_type_id varchar2(2)
+    whale_type_name varchar2(30)
+}
+Entity conservation_status{
+    conservation_status_id
+    conservation_status_name
+}
+Entity diet{
+    diet_id
+    diet_name
+}
+Entity ocean {
+    ocean_id varchar2(2)
+    ocean_name varchar2(30)
+}
+Entity research_station {
+    research_station_id number
+    name varchar2(50)
+}
+Entity research_lab{
+
+}
+Entity research_site{
+
+}
+Entity station_location{
+    lat number
+    lon number
+}
+
+Entity whale_tracker_history{
+    time timestamp
+    lat number
+    lon number
+}
+
+whale }|--|| whale_species
+whale }|--|| diet
+whale_tracker_history }|-l-|| ocean
+whale }|--|| conservation_status
+whale ||--|{ whale_tracker_history
+research_station <|--|| research_lab
+research_station <|--|| research_site
+research_station }|--|| station_location
+research_site }|--|| ocean
+@enduml
