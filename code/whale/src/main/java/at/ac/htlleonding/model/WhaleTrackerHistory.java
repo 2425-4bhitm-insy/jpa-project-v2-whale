@@ -2,11 +2,13 @@ package at.ac.htlleonding.model;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
+
 @Entity
-public class whaleTrackerHistory {
+public class WhaleTrackerHistory {
 
     @EmbeddedId
-    private trackerId trackerId;
+    private TrackerId trackerId;
 
     @ManyToOne
     @JoinColumn(name = "whale_id")
@@ -14,7 +16,16 @@ public class whaleTrackerHistory {
 
     @ManyToOne
     @JoinColumn(name = "ocean_id")
-    Ocean ocean;
+    private Ocean ocean;
+
+    public WhaleTrackerHistory() {
+    }
+
+    public WhaleTrackerHistory(double lat, double lon, Timestamp timestamp, Whale whale, Ocean ocean) {
+        this.trackerId = new TrackerId(lat, lon, timestamp);
+        this.whale = whale;
+        this.ocean = ocean;
+    }
 
     public Ocean getOcean() {
         return ocean;
@@ -32,6 +43,4 @@ public class whaleTrackerHistory {
         this.whale = whale;
     }
 
-    public whaleTrackerHistory() {
-    }
 }
