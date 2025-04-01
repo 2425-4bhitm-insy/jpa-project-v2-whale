@@ -13,7 +13,7 @@ public class ResearchStationRepository implements PanacheRepository<ResearchStat
         return find("type", type).list();
     }
 
-    public List<ResearchStation> getResearchStationsByOcean(Ocean ocean) {//might caus problem, not all stations have an ocean
+    public List<ResearchStation> getResearchStationsByOcean(Ocean ocean) {//might cause problem, not all stations have an ocean
         return find("ocean", ocean).list();
     }
 
