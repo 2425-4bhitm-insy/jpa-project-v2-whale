@@ -4,11 +4,13 @@ import at.ac.htlleonding.model.ResearchSite;
 import at.ac.htlleonding.model.Whale;
 import at.ac.htlleonding.model.WhaleTrackerHistory;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@ApplicationScoped
 public class WhaleTrackerRepository implements PanacheRepository<WhaleTrackerHistory> {
     public List<WhaleTrackerHistory> getTrackerHistory(Whale whale) {
         return find("whale", whale).list();
