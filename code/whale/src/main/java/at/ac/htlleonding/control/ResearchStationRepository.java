@@ -18,6 +18,22 @@ public class ResearchStationRepository implements PanacheRepository<ResearchStat
     }
 
     public ResearchStation findClosestResearchSite(double lat, double lon) {
-        return null;
+        double minDistance = Double.MAX_VALUE;
+        ResearchStation closestStation = null;
+
+        for (ResearchStation station : listAll()) {
+            double distance = WhaleTrackerRepository.calculateDistance(
+                    lat,
+                    lon,
+                    station.getStationId().getLat(),
+                    station.getStationId().getLon()
+            );
+
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestStation = station;
+            }
+        }
+        return closestStation;
     }
 }
