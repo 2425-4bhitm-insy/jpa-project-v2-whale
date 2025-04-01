@@ -43,4 +43,8 @@ public class WhaleTrackerHistory {
         this.whale = whale;
     }
 
+    public TrackerId getTrackerId() {
+        return trackerId;
+    }
+
 }

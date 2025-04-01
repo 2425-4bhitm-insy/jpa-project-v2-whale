@@ -29,4 +29,8 @@ public class ResearchStation {
     public void setResearchStationName(String researchStationName) {
         this.researchStationName = researchStationName;
     }
+
+    public StationId getStationId() {
+        return stationId;
+    }
 }
