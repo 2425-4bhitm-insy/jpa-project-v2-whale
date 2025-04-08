@@ -4,9 +4,12 @@ import jakarta.persistence.*;
 
 @Entity
 public class ResearchStation {
+    @Id
+    private Long id;
 
-    @EmbeddedId
-    private StationId stationId;
+    @Embedded
+    private Position position;
+
     private String researchStationName;
 
     public ResearchStation() {
@@ -14,13 +17,20 @@ public class ResearchStation {
 
     public ResearchStation(String researchStationName, double lat, double lon) {
         this.researchStationName = researchStationName;
-        this.stationId = new StationId(lat, lon);
+        this.position = new Position(lat, lon);
     }
 
     public ResearchStation(String researchStationName) {
         this.researchStationName = researchStationName;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getResearchStationName() {
         return researchStationName;
@@ -30,7 +40,7 @@ public class ResearchStation {
         this.researchStationName = researchStationName;
     }
 
-    public StationId getStationId() {
-        return stationId;
+    public Position getPosition() {
+        return position;
     }
 }

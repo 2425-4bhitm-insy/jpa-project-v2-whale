@@ -6,9 +6,14 @@ import java.sql.Timestamp;
 
 @Entity
 public class WhaleTrackerHistory {
+    @Id
+    private Long id;
 
-    @EmbeddedId
-    private TrackerId trackerId;
+    @Embedded
+    private Position position;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Timestamp timestamp;
 
     @ManyToOne
     @JoinColumn(name = "whale_id")
@@ -22,9 +27,32 @@ public class WhaleTrackerHistory {
     }
 
     public WhaleTrackerHistory(double lat, double lon, Timestamp timestamp, Whale whale, Ocean ocean) {
-        this.trackerId = new TrackerId(lat, lon, timestamp);
         this.whale = whale;
         this.ocean = ocean;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Ocean getOcean() {
@@ -42,9 +70,4 @@ public class WhaleTrackerHistory {
     public void setWhale(Whale whale) {
         this.whale = whale;
     }
-
-    public TrackerId getTrackerId() {
-        return trackerId;
-    }
-
 }

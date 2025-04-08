@@ -6,7 +6,6 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class ResearchSite extends ResearchStation {
-
     @ManyToOne
     @JoinColumn(name = "ocean")
     Ocean ocean;

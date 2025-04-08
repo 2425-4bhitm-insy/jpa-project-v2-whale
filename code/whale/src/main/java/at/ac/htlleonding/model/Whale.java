@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Whale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long whaleId;
+    private Long id;
 
     String whaleName;
 
@@ -51,5 +51,21 @@ public class Whale {
 
     public void setWhaleSpecies(WhaleSpecies whaleSpecies) {
         this.whaleSpecies = whaleSpecies;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getWhaleName() {
+        return whaleName;
+    }
+
+    public void setWhaleName(String whaleName) {
+        this.whaleName = whaleName;
     }
 }

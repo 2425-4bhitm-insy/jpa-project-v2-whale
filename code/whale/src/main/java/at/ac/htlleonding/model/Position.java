@@ -2,18 +2,15 @@ package at.ac.htlleonding.model;
 
 import jakarta.persistence.Embeddable;
 
-import java.io.Serializable;
-
 @Embeddable
-public class StationId implements Serializable {
-
+public class Position {
     private double lat;
     private double lon;
 
-    public StationId() {
+    public Position() {
     }
 
-    public StationId(double lat, double lon) {
+    public Position(double lat, double lon) {
         this.lat = lat;
         this.lon = lon;
     }
