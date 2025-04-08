@@ -25,8 +25,8 @@ public class ResearchStationRepository implements PanacheRepository<ResearchStat
             double distance = WhaleTrackerRepository.calculateDistance(
                     lat,
                     lon,
-                    station.getStationId().getLat(),
-                    station.getStationId().getLon()
+                    station.getPosition().getLat(),
+                    station.getPosition().getLon()
             );
 
             if (distance < minDistance) {
