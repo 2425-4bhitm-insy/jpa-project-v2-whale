@@ -1,20 +1,20 @@
 package at.ac.htlleonding.boundary;
 
+import at.ac.htlleonding.control.OceanRepository;
 import at.ac.htlleonding.control.ResearchStationRepository;
 import at.ac.htlleonding.control.ResearchStationType;
 import at.ac.htlleonding.model.Ocean;
 import at.ac.htlleonding.model.ResearchStation;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
 @Path("/stations")
 public class ResearchStationResource {
     @Inject
     ResearchStationRepository stationRepository;
+    @Inject
+    OceanRepository oceanRepository;
 
     @GET
     public Response getAllResearchStations() {
@@ -28,12 +28,15 @@ public class ResearchStationResource {
     }
 
     @GET
+    @Path("type")
     public Response getResearchStationsByType(@QueryParam("type") ResearchStationType type) {
         return Response.ok(stationRepository.getResearchStationsByType(type)).build();
     }
 
     @GET
-    public Response getResearchStationsByOcean(@QueryParam("ocean") Ocean ocean) {
+    @Path("ocean/{id}")
+    public Response getResearchStationsByOcean(@PathParam("id") Long oceanId) {
+        Ocean ocean = oceanRepository.findById(oceanId);
         return Response.ok(stationRepository.getResearchStationsByOcean(ocean)).build();
     }
 }
