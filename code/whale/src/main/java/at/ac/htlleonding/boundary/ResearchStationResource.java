@@ -28,12 +28,6 @@ public class ResearchStationResource {
     }
 
     @GET
-    @Path("type")
-    public Response getResearchStationsByType(@QueryParam("type") ResearchStationType type) {
-        return Response.ok(stationRepository.getResearchStationsByType(type)).build();
-    }
-
-    @GET
     @Path("ocean/{id}")
     public Response getResearchStationsByOcean(@PathParam("id") Long oceanId) {
         Ocean ocean = oceanRepository.findById(oceanId);

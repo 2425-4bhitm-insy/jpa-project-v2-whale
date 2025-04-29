@@ -9,10 +9,6 @@ import java.util.List;
 
 @ApplicationScoped
 public class ResearchStationRepository implements PanacheRepository<ResearchStation> {
-    public List<ResearchStation> getResearchStationsByType(ResearchStationType type) {
-        return find("type", type).list();
-    }
-
     public List<ResearchStation> getResearchStationsByOcean(Ocean ocean) {//might cause problem, not all stations have an ocean
         return find("ocean", ocean).list();
     }

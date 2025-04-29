@@ -29,8 +29,8 @@ public class WhaleTrackerRepository implements PanacheRepository<WhaleTrackerHis
         int distance = 0;
 
         for (WhaleTrackerHistory history : getTrackerHistory(whale)) {
-            if (history.getTimestamp().after(Timestamp.from(Instant.from(from))) &&
-                    history.getTimestamp().before(Timestamp.from(Instant.from(to)))) {
+            if (history.getTimestamp().after(Timestamp.valueOf(from)) &&
+                history.getTimestamp().before(Timestamp.valueOf(to))) {
                 distance += calculateDistance(history.getPosition().getLat(), history.getPosition().getLon(), history.getPosition().getLat(), history.getPosition().getLon());
             }
         }

@@ -10,9 +10,6 @@ import java.util.List;
 
 @ApplicationScoped
 public class WhaleRepository implements PanacheRepository<Whale> {
-    public List<Whale> getWhalesByOcean(Ocean ocean) {
-        return find("ocean", ocean).list();
-    }
 
     public List<Whale> getWhalesByConservationStatus(ConservationStatus conservationStatus) {
         return find("conservationStatus", conservationStatus).list();

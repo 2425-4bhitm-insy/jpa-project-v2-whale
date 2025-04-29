@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 @Entity
 public class WhaleTrackerHistory {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Embedded

@@ -28,13 +28,6 @@ public class WhaleResource {
     }
 
     @GET
-    @Path("ocean/{id}")
-    public Response getWhalesPerOcean(@PathParam("id") Long oceanId){
-        Ocean ocean = oceanRepository.findById(oceanId);
-        return Response.ok(whaleRepository.getWhalesByOcean(ocean)).build();
-    }
-
-    @GET
     @Path("conservation/status")
     public Response getWhalesByConservationStatus(@QueryParam("conservation-status") ConservationStatus conservationStatus){
         return Response.ok(whaleRepository.getWhalesByConservationStatus(conservationStatus)).build();
