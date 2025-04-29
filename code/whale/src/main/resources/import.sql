@@ -18,8 +18,8 @@ VALUES
 
 INSERT INTO ResearchStation (lat, lon, ocean, station_type, city, country, researchStationName)
 VALUES
-    (34.05, -118.25, 1, 'Station', 'Los Angeles', 'USA', 'Pacific Research Center'),
-    (51.51, -0.13, 2, 'Station', 'London', 'UK', 'Atlantic Whale Base');
+    (34.05, -118.25, 1, 'lab', 'Los Angeles', 'USA', 'Pacific Research Center'),
+    (51.51, -0.13, 2, 'lab', 'London', 'UK', 'Atlantic Whale Base');
 
 INSERT INTO WhaleSpecies (speciesName)
 VALUES

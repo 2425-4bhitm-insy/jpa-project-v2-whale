@@ -1,14 +1,10 @@
 package at.ac.htlleonding.control;
 
-import at.ac.htlleonding.model.Ocean;
-import at.ac.htlleonding.model.Position;
 import at.ac.htlleonding.model.ResearchStation;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

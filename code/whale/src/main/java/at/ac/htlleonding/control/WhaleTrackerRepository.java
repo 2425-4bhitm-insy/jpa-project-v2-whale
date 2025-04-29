@@ -51,7 +51,7 @@ public class WhaleTrackerRepository implements PanacheRepository<WhaleTrackerHis
         return (int) Math.round(distance);
     }
 
-    public ResearchSite getLastVisitedSite(Whale whale) { //Checks when the position of a whale last matched a research station's one
+    public ResearchSite getLastVisitedSite(Whale whale) {
         final int RANGE = 10;
 
         TypedQuery<ResearchSite> typedQuery = this.getEntityManager().createQuery(
