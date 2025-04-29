@@ -2,7 +2,6 @@ package at.ac.htlleonding.boundary;
 
 import at.ac.htlleonding.control.OceanRepository;
 import at.ac.htlleonding.control.ResearchStationRepository;
-import at.ac.htlleonding.control.ResearchStationType;
 import at.ac.htlleonding.model.Ocean;
 import at.ac.htlleonding.model.ResearchStation;
 import jakarta.inject.Inject;
