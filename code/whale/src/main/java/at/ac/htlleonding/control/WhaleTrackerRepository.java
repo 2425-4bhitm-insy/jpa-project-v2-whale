@@ -76,4 +76,33 @@ public class WhaleTrackerRepository implements PanacheRepository<WhaleTrackerHis
 
         return typedQuery.getSingleResult();
     }
+
+    public List<WhaleTrackingCountRecord> getTrackingCountsGroupedByDate() {
+        TypedQuery<WhaleTrackingCountRecord> query = getEntityManager().createQuery(
+                "SELECT new at.ac.htlleonding.control.WhaleTrackingCountRecord(" +
+                        " w.whale.id, FUNCTION('DATE', w.timestamp), COUNT(w)) " +
+                        "FROM WhaleTrackerHistory w " +
+                        "GROUP BY w.whale.id, FUNCTION('DATE', w.timestamp) " +
+                        "ORDER BY w.whale.id, FUNCTION('DATE', w.timestamp)",
+                WhaleTrackingCountRecord.class
+        );
+
+        return query.getResultList();
+    }
+
+    public List<WhaleTrackingCountRecord> getWhalesTrackedForMinimumDays(int minDays) {
+        TypedQuery<WhaleTrackingCountRecord> query = getEntityManager().createQuery(
+                "SELECT new at.ac.htlleonding.control.WhaleTrackingCountRecord(" +
+                        "w.whale.id, FUNCTION('DATE', w.timestamp), COUNT(w)) " +
+                        "FROM WhaleTrackerHistory w " +
+                        "GROUP BY w.whale.id, FUNCTION('DATE', w.timestamp) " +
+                        "HAVING COUNT(w) >= :minDays " +
+                        "ORDER BY w.whale.id, FUNCTION('DATE', w.timestamp)",
+                WhaleTrackingCountRecord.class
+        );
+
+        query.setParameter("minDays", minDays);
+
+        return query.getResultList();
+    }
 }
