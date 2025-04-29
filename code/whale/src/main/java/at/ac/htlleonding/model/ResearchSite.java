@@ -1,10 +1,12 @@
 package at.ac.htlleonding.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+@DiscriminatorValue(value="site")
 public class ResearchSite extends ResearchStation {
     @ManyToOne
     @JoinColumn(name = "ocean")

@@ -1,8 +1,10 @@
 package at.ac.htlleonding.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
+@DiscriminatorValue(value = "lab")
 public class ResearchLab extends ResearchStation{
     private String country;
     private String city;

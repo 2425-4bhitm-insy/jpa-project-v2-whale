@@ -3,6 +3,8 @@ package at.ac.htlleonding.model;
 import jakarta.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="station_type", discriminatorType = DiscriminatorType.STRING)
 public class ResearchStation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
